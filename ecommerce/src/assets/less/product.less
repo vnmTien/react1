@@ -1,0 +1,29 @@
+.product{
+   flex: 0 0 33.5%;
+   border-radius: 5px;
+   background-color: white;
+   border-radius: 8px;
+   overflow: hidden;
+   .info{
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      .title{
+         font-size: 1.1rem;
+         font-weight: 600;
+      }
+      .prices{
+         display: flex;
+         justify-content: space-between;
+      }
+   }
+   img{
+      max-width: 100%;
+   }
+   @media screen and(max-width: 950px) {
+      flex: 0 0 calc(50% - 21px);;
+   }
+   @media screen and(max-width: 450px) {
+      flex: 0 0 100%;
+   }
+}
