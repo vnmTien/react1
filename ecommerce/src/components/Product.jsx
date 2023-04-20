@@ -6,12 +6,16 @@ export default function Product({item,onDelete,OnUpdate,onSelect}){
       onDelete(id)
    }
 
+   const handleUpdateProduct = (item) =>{
+      OnUpdate(item)
+   }
+
    const handleShowProduct = (id) =>{
       onSelect(id)
    }
 
    return(
-      <div className="product">
+      <div className="product-item">
          <img src={item?.thumbnail} alt={item.title} onClick={() => handleShowProduct(item.id)}/>
          <div className="info">
             <div className="title" title={item.description} onClick={() => handleShowProduct(item.id)}>{item.title}</div>
@@ -28,6 +32,9 @@ export default function Product({item,onDelete,OnUpdate,onSelect}){
             <div className="options">
                <button className="btn delete" onClick={() => handleRemoveProduct(item.id)}>
                   Remove Product
+               </button>
+               <button className="btn delete" onClick={() => handleUpdateProduct(item)}>
+                  Update Product
                </button>
             </div>
          </div>
