@@ -13,6 +13,7 @@ function Products({ title, children }) {
 
   const onDeleteProduct = (id) => {
     const newData = products.filter((product) => product.id !== id);
+    setProducts(newData);
     setProductsSort(newData);
   };
 
@@ -62,16 +63,16 @@ const onShowProducts = () => {
          <p>số lượng: {products?.length || 0}</p>
          <h2>Products</h2>
          <div className="products" style={{display: isSelected ? "none" : ""}}>
-            {productsSort
-               ? productsSort.map((product) => (
-                  <Product
-                     item={product}
-                     key={product?.id}
-                     onDelete={onDeleteProduct}
-                     onUpdate={onUpdateProduct}
-                     onSelect={onSelectProduct}
-                  />
-               ))
+            {productsSort 
+                  ? productsSort.map((product) => (
+                     <Product
+                        item={product}
+                        key={product?.id}
+                        onDelete={onDeleteProduct}
+                        onUpdate={onUpdateProduct}
+                        onSelect={onSelectProduct}
+                     />
+                  ))
                : "Loading...."}
          </div>
          <div className="detail-product" style={{display: isSelected ? "block" : "none"}}>
